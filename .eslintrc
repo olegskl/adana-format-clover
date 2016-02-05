@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "metalab/base",
+    "metalab/react"
+  ],
+  "ecmaFeatures": [
+    "destructuring"
+  ]
+}

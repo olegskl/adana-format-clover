@@ -1,0 +1,31 @@
+{
+  "name": "adana-format-clover",
+  "version": "0.0.1",
+  "description": "Adana format clover",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleg Sklyanchuk <sklyanchuk@gmail.com> (http://olegskl.com)",
+  "license": "MIT",
+  "dependencies": {
+    "adana-analyze": "^0.1.1",
+    "babel-polyfill": "^6.3.14",
+    "xml-writer": "^1.6.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.1",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.1",
+    "babel-eslint": "^4.1.6",
+    "babel-plugin-transform-es2015-destructuring": "^6.5.0",
+    "babel-plugin-transform-function-bind": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "eslint": "^1.10.3",
+    "eslint-config-metalab": "^2.0.0-beta.3",
+    "eslint-plugin-filenames": "^0.2.0",
+    "eslint-plugin-import": "^0.12.0",
+    "eslint-plugin-react": "^3.11.2"
+  }
+}
