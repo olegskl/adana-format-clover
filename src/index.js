@@ -24,11 +24,11 @@ export default function cloverReporter(coverage) {
       .startPackage(name)
       .addPackageMetrics(summarizeFiles(files));
 
-    files.forEach(({ lines, metrics }) => {
+    files.forEach(file => {
       report
-        .startFile(lines)
-        .addFileMetrics(metrics);
-      lines.forEach(::report.addLine);
+        .startFile(file)
+        .addFileMetrics(file.metrics);
+      file.lines.forEach(::report.addLine);
       report.endFile();
     });
 
