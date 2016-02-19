@@ -1,27 +1,14 @@
-function commonPrefixReducer(a, b) {
-  const result = [];
-  const minLength = Math.min(a.length, b.length);
-  for (let i = 0; i < minLength; i += 1) {
-    if (a[i] !== b[i]) { break; }
-    result.push(a[i]);
-  }
-  return result;
-}
+import findCommonPath from './find-common-path';
 
-function findCommonPrefix(splitFilePaths = []) {
-  return splitFilePaths.length === 1 ?
-    splitFilePaths[0].slice(0, -1) :
-    splitFilePaths.reduce(commonPrefixReducer);
-}
+const separator = /\\|\//;
 
 function extractPackageNames(files) {
-  const separator = /\\|\//;
   const splitFilePaths = files.map(file => file.path.split(separator));
-  const commonPrefix = findCommonPrefix(splitFilePaths);
+  const commonPath = findCommonPath(splitFilePaths);
 
   return splitFilePaths.map(splitFilePath => {
     return splitFilePath
-      .slice(commonPrefix.length, -1)
+      .slice(commonPath.length, -1)
       .join('.');
   });
 }
@@ -40,5 +27,5 @@ export default function groupFilesByPackage(files) {
     packageIndex[packageName].files.push(files[i]);
   });
 
-  return Object.values(packageIndex);
+  return Object.keys(packageIndex).map(key => packageIndex[key]);
 }

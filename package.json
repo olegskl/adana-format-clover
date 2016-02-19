@@ -11,7 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "adana-analyze": "^0.1.1",
-    "babel-polyfill": "^6.3.14",
     "xml-writer": "^1.6.0"
   },
   "devDependencies": {

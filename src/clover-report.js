@@ -1,9 +1,9 @@
 import XMLWriter from 'xml-writer';
 
 function objectSubkeyValueSum(obj, subkey) {
-  return Object
-    .values(obj)
-    .reduce((result, value) => result + value[subkey], 0);
+  return Object.keys(obj).reduce((result, key) => {
+    return result + obj[key][subkey];
+  }, 0);
 }
 
 export default class CloverReport extends XMLWriter {
