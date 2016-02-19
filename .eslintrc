@@ -1,9 +1,8 @@
 {
+  "env": {
+    "node": true
+  },
   "extends": [
-    "metalab/base",
-    "metalab/react"
-  ],
-  "ecmaFeatures": [
-    "destructuring"
+    "metalab/standard"
   ]
 }

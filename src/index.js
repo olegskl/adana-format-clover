@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import CloverReport from './clover-report';
 import analyzeFiles from './analyze-files';
 import groupFilesByPackage from './group-files';
