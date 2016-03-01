@@ -1,5 +1,8 @@
 import path from 'path';
-import { lines, metrics, tags } from 'adana-analyze';
+import { metrics, tags } from 'adana-analyze';
+
+// FIXME temporary solution:
+import { altLines, extendWithLines } from './alt-lines';
 
 const requiredTags = [
   'statement',
@@ -10,6 +13,9 @@ const requiredTags = [
 
 function computeMetrics(coverageLocations) {
   const fileMetrics = tags(coverageLocations, requiredTags);
+
+  extendWithLines(fileMetrics, coverageLocations);
+
   return Object.keys(fileMetrics).reduce((result, tagName) => {
     result[tagName] = metrics(fileMetrics[tagName]);
     return result;
@@ -20,7 +26,7 @@ function analyzeFile(filePath, fileCoverage) {
   return {
     name: path.basename(filePath),
     path: filePath,
-    lines: lines(fileCoverage.locations),
+    lines: altLines(fileCoverage.locations),
     metrics: computeMetrics(fileCoverage.locations),
   };
 }
